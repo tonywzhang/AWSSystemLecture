@@ -37,3 +37,5 @@ Horizontal Scaling - Adding more machines could help with that solution.
 Vertical Scaling - Could also simply try to make our own app more efficient or also improve the specs of the machine itself. Adding hardware to the current machine to improve performance could help as well.
 
 Fix issues that deal with efficiency. Make processes more efficient time complexity wise. Eventually one of the above Scaling processes may be necessary. Improving hardware is an easy way to make life easier for your app.
+
+Vertical Scaling is preferred normally over Horizontal Scaling.
