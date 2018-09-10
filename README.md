@@ -39,3 +39,19 @@ Vertical Scaling - Could also simply try to make our own app more efficient or a
 Fix issues that deal with efficiency. Make processes more efficient time complexity wise. Eventually one of the above Scaling processes may be necessary. Improving hardware is an easy way to make life easier for your app.
 
 Vertical Scaling is preferred normally over Horizontal Scaling.
+
+## What Makes Applications Slow
+
+Normally fetching, writing, to and from a database causes an app to slow down. Most of the database lives in a computers' RAM.
+
+Writing a variable used to be written into the hard disk. Rotational drones were used on these computers, and they were written onto a specific position on the disk. Similar to rewinding on a cassette tape or on a record disc.
+
+RAM is similar to a electrical circuit, and reading data from the RAM is much faster than looking up data from the hard disk.
+
+### How Does RAM differ from Solid State Drive
+
+SSD is similar to RAM, electrical based circuit that operates without a mechanical component. Will not be destroyed if a mechanical component crashes. Overall, not nearly as quick as RAM. RAM is roughly 10,000 times faster than the disk. SSD is somewhere in the middle.
+
+## How does the database use RAM/Hard Disk
+
+Facebook would be super slow if it was all stored on the Hard Disk, and manually looked up. Hard Disk still needs to be used to persist databases so that the data is not lost. Once the database is initialized, it can grab all of the data from the DB, and read everything and copy it into the RAM. There will subsequently be two copies of the data in the RAM. Therefore, accessing the data will be much faster. Essentially creates a cache for that DB data.
