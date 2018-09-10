@@ -1,6 +1,6 @@
 # AWS System Lecture
 
-## Ned Lecture Notes
+## Ned Ruggeri Lecture Notes
 
 Instead of hosting websites on Heroku, users can host using Amazon Web Services.
 
@@ -67,3 +67,11 @@ Buy more RAM. Can cost up to thousands of $, but it will solve many of an app's 
 Active Set: Batch of data that is used often.
 
 Keeping an app's active set as small as possible is optimal for maintain health.
+
+Sometimes web app's will deny services for users that send an unreasonable number of requests.
+
+## Horizontal Scaling aka hiring more workers
+
+Having a server that many machines can converse with (PostgreSQL) is important so that many workers can use the same database.
+
+The user will never know about the number of workers in the background. The user only will interact with the LoadBalancer, which becomes the domain name. DNS re-directs them to the LoadBalancer. The LoadBalancer is configured to work with the machines, and picks one when the user sends a request with all of their information that they send over. That corresponding Rails machine will process that request.
