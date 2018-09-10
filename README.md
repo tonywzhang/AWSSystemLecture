@@ -6,7 +6,7 @@ Instead of hosting websites on Heroku, users can host using Amazon Web Services.
 
 Gain access to computers at Amazon to host services in their Cloud database.
 
-Normally Port8888 is unavailable to the outside world, for security purposes. Usually protected by firewalls.
+Normally, ports (ie: Port8888) are unavailable to the outside world, for security purposes. Usually protected by firewalls.
 
 By assigning a static IP, essentially asks Amazon for a static IP address. Paying a small fee is normally required to obtain a static IP address.
 
@@ -83,3 +83,5 @@ LoadBalancer serves all users at a time. Instead of receiving requests and deali
 Benefits of having multiple machines is security if one goes down. If the LoadBalancer does not get a reply from one machine, it will send the requests to the remaining machines. It will wait for a response from the broken machine, understand that it is not going to get a response back, and subsequently ignores that machine on future requests.
 
 AWS is great because businesses' requirements for machine number is typically constant throughout the United States. If one company fails, Amazon can shift over those same machines to another company. They continually rent out their machines to new companies, or returning customers if a company needs more machines, or has no more need for them.
+
+LoadBalancer will sometimes randomly choose a machine to send the request to. If the LoadBalancer is the SinglePointofFailure, a second LoadBalancer may be used to avoid random bouts of failure. 
