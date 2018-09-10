@@ -55,3 +55,15 @@ SSD is similar to RAM, electrical based circuit that operates without a mechanic
 ## How does the database use RAM/Hard Disk
 
 Facebook would be super slow if it was all stored on the Hard Disk, and manually looked up. Hard Disk still needs to be used to persist databases so that the data is not lost. Once the database is initialized, it can grab all of the data from the DB, and read everything and copy it into the RAM. There will subsequently be two copies of the data in the RAM. Therefore, accessing the data will be much faster. Essentially creates a cache for that DB data.
+
+To summarize, the data needs to be stored somewhat in the Disk, but also store a copy in the RAM for faster look up time.
+
+FB probably has millions more GET requests, than actual POST requests, as users are more likely to be reading other people's posts than creating their own.
+
+### What happens when you have a bigger DB than you have RAM?
+
+Buy more RAM. Can cost up to thousands of $, but it will solve many of an app's issues. At some point, you can't add more RAM. The DB doesn't need to move all of the Disk into the RAM. Most popular data can live in RAM, but majority aren't ever accessed, so that un-used data can stay inside the Disk. It isn't optimal, but it is one solution that will help the computer fight being overwhelmed.
+
+Active Set: Batch of data that is used often.
+
+Keeping an app's active set as small as possible is optimal for maintain health.
