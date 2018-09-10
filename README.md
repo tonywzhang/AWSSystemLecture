@@ -70,8 +70,10 @@ Keeping an app's active set as small as possible is optimal for maintain health.
 
 Sometimes web app's will deny services for users that send an unreasonable number of requests.
 
-## Horizontal Scaling aka hiring more workers
+## Horizontal Scaling AKA hiring more workers
 
 Having a server that many machines can converse with (PostgreSQL) is important so that many workers can use the same database.
 
 The user will never know about the number of workers in the background. The user only will interact with the LoadBalancer, which becomes the domain name. DNS re-directs them to the LoadBalancer. The LoadBalancer is configured to work with the machines, and picks one when the user sends a request with all of their information that they send over. That corresponding Rails machine will process that request.
+
+LoadBalancer's job is much simpler than if the user was interacting directly with the machines. Response is sent back from the machine to the LoadBalancer, and that same response is then sent back to the user with updated cookies, etc. LoadBalancer serves as an intermediary between the machines that hold all of the code and the user sending the requests.
