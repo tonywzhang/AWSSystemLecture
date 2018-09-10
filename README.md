@@ -77,3 +77,9 @@ Having a server that many machines can converse with (PostgreSQL) is important s
 The user will never know about the number of workers in the background. The user only will interact with the LoadBalancer, which becomes the domain name. DNS re-directs them to the LoadBalancer. The LoadBalancer is configured to work with the machines, and picks one when the user sends a request with all of their information that they send over. That corresponding Rails machine will process that request.
 
 LoadBalancer's job is much simpler than if the user was interacting directly with the machines. Response is sent back from the machine to the LoadBalancer, and that same response is then sent back to the user with updated cookies, etc. LoadBalancer serves as an intermediary between the machines that hold all of the code and the user sending the requests.
+
+LoadBalancer serves all users at a time. Instead of receiving requests and dealing with them one at a time, it deals with them in bulk.
+
+Benefits of having multiple machines is security if one goes down. If the LoadBalancer does not get a reply from one machine, it will send the requests to the remaining machines. It will wait for a response from the broken machine, understand that it is not going to get a response back, and subsequently ignores that machine on future requests.
+
+AWS is great because businesses' requirements for machine number is typically constant throughout the United States. If one company fails, Amazon can shift over those same machines to another company. They continually rent out their machines to new companies, or returning customers if a company needs more machines, or has no more need for them.
